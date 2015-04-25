@@ -1,0 +1,97 @@
+/* General Reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, 
+acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong,
+ sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+ thead, tr, th, td, hr, button {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	text-align:center;
+	background:none;
+}
+
+ol, ul {
+	list-style-type:none;
+}
+
+h1, h2, h3, h4, h5, h6, li {
+	line-height:100%;
+}
+
+body {
+	margin:0px;
+	padding:0px;
+	font-size:18px;
+	line-height:21px;
+	color:#9FB1B2;
+	font-family:Arial, Helvetica, sans-serif;
+	background-color:#212b2d;
+}
+main > div {
+  display: inline-block;
+  width: 49%;
+  margin-top: 10px;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight:normal;
+}
+
+h1 {
+	font-size:40px;
+	margin-bottom:15px;
+}
+
+h2 {
+	font-size:40px;
+	margin-bottom:15px;
+}
+
+h3 {
+	font-size:24px;
+	margin-bottom:15px;
+}
+
+h4 {
+	font-size:24px;
+	margin-bottom:15px;
+}
+
+h5 {
+	font-size:24px;
+	margin-bottom:15px;
+}
+
+h6 {
+	font-size:24px;
+	margin-bottom:15px;
+}
+
+
+#soft_popup_user_modal{
+    font:25px Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	padding:0;
+	margin:0
+}
+#button-container
+{
+font:35px Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	padding:0;
+	margin:0
+}
+
+    div{
+		margin: 0 0 15px 0;
+	  	border : none;
+	}
+	label {
+	  	display: inline-block;
+	  	width: 25%;
+	  	text-align: middle;
+	  	margin: 10px
+	}  
+    

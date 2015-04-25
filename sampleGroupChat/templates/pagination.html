@@ -1,0 +1,23 @@
+{% if is_paginated %}
+<section class="pagination">
+    {% if page_obj.has_previous %}
+        <a href="javascript:void(0);" data-page="{{ page_obj.previous_page_number }}" class="prev previous" title="Previous">Previous</a>
+        {% if page_obj.previous_page_number !=  1 %}
+            <a href="javascript:void(0);" data-page="1" class="previous">1</a>
+            <span>...</span>
+        {% endif %}
+        <a href="javascript:void(0);" data-page="{{ page_obj.previous_page_number }}" class="previous">{{ page_obj.previous_page_number }}</a>
+    {% endif %}
+
+    <a href="javascript:void(0);" class="selected" id="current_page_number">{{ page_obj.number }}</a>
+    
+    {% if page_obj.has_next %}
+        <a href="javascript:void(0);" data-page="{{ page_obj.next_page_number }}" class="previous">{{ page_obj.next_page_number }}</a>
+        {% if page_obj.next_page_number != page_obj.paginator.num_pages %}
+            <span>...</span>
+            <a href="javascript:void(0);"  data-page="{{ page_obj.paginator.num_pages }}" class="previous">{{ page_obj.paginator.num_pages }}</a>
+        {% endif %}
+        <a href="javascript:void(0);" data-page="{{ page_obj.next_page_number }}" class="next" title="Next">Next</a>
+    {% endif %}
+</section>
+{% endif %}

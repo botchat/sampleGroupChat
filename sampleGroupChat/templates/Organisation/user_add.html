@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<body>
+<div id="soft_popup_user_modal" class="modal-box" title="User">
+    <header>
+        <h2>User</h2>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style3.css' %}" />
+    </header>
+    <form action="/home/main/" method="post" id="userDialog">
+        {% csrf_token %}
+        <div class="content">
+            <div class="form-layout">		
+                <div class="row mandatory">
+                    <label>First Name</label>
+                    <input type="text" name="first_name" id="first_name" maxlength="30">
+                    <span id="user_error_name" style="color:red"></span>
+                </div>
+                <div class="row">
+                    <label>Last Name</label>
+                    <input type="text" name="last_name" id="last_name" maxlength="30">
+                    <span id="user_error_last" style="color:red"></span>
+                </div>
+                <div class="row mandatory">
+                    <label>Email ID</label>
+                    <input type="text" name="email" id="email">
+                    <span id="user_error_email" style="color:red"></span>
+                </div>
+                <div class="row mandatory">
+                    <label>User Name</label>
+                    <input type="text" name="username" id="username" maxlength="30">
+                    <span id="user_error_username" style="color:red"></span>
+                </div>
+                <div class="row passdiv" style="display:none;">
+                     <label></label>
+                    <div class="c2" id="changePass"><u>Change password</u></div>
+                </div>
+                <div class="row mandatory hide">
+                    <label>Password</label>
+                    <input type="password" name="password" id="password"  maxlength="10">
+                    <span id="user_error_pass" style="color:red"></span>
+                </div>
+                <div class="row mandatory hide">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password"  maxlength="10">
+                    <span id="user_error_confirm" style="color:red"></span>
+                </div>
+
+                <div class="button-container">
+                    <input type="submit" value="Save" id="validation_add_user" >
+                    <input type="button" name="" id="" value="Cancel" class="cancel" />
+                </div>
+            </div> 
+        </div>
+    </form>
+</div>
+</body>
+</html>

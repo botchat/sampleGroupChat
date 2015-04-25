@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+<title>Join - Chat</title>
+<script src="{% static 'scripts/jquery.js' %}"></script>
+<script type="text/javascript">
+  setInterval("my_function();",5000); 
+  
+    function my_function(){
+        $('#chatbox').load(location);
+    }
+</script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}" />
+</head>
+<div id="wrapper">
+    <div id="menu">
+        <p class="welcome">Welcome, <b></b></p>
+        <p class="logout"><a id="exit" href="/home/logged_user">Exit Chat</a></p>
+l        <div style="clear:both"></div>
+    </div>
+    
+    <div id="chatbox">
+        <ul>
+        {% for chatInfo in groupChat %}
+            <li>{{ chatInfo.pub_date }} : {{ chatInfo.username }} >> {{ chatInfo.message }}</li>
+        {% empty %}
+            <li>No messages yet.</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <form name="message" action="." method="post">
+        {% csrf_token %}
+        <input name="usermsg" type="text" id="usermsg" size="63" />
+        <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+    </form>
+</div>
+</body>
+</html>

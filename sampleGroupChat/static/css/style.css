@@ -1,0 +1,258 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0; font-size:14px; font-style:inherit; font-weight:inherit; outline:0; margin:0; padding:0;}
+* {font-size:14px;}
+body{font-family:Calibri, Verdana, Ariel, sans-serif; font-size:14px; color:#666;}
+img{border:none; outline:none; margin:0; padding:0;}
+ul, li{list-style:none; padding:0; margin:0;}
+strong{font-weight:bold;}
+
+html,body {height:100%;}
+input[type=text]{color:#999; padding:5px; height:20px; border:solid 1px #b5b4b4;}
+select{color:#999; padding:5px; height:33px;}
+textarea{height:100px; color:#999;}
+input[type='button']{cursor:pointer;}
+input:disabled{opacity:0.5; cursor:not-allowed;}
+a, a:visited{text-decoration:none; color:#999;}
+a:hover{text-decoration:underline; color:#F00;}
+.bold{font-weight:bold;}
+.clearBoth{clear:both;}
+
+
+/* Styles for Fancy Checkbox starts */
+.amPmCheckbox{margin:5px 0;}
+.amPmCheckbox input[type="checkbox"] {display:none;}
+.amPmCheckbox input[type="checkbox"]+label {background:url(../images/checkox-unchecked.png) no-repeat; height:17px; padding:2px 0 2px 30px; cursor:pointer;}
+.amPmCheckbox input[type="checkbox"]:checked + label {background:url(../images/checkox-checked.png) no-repeat; height:17px;}
+/* Styles for Fancy Checkbox ends */
+
+
+.main-container{min-width:1280px; min-height:100%; height:100%;}
+.body-area{padding:0 30px;}
+.page-title{padding:0 0 5px 0; margin:20px 0; border-bottom:dotted 1px #aeaeae; overflow:hidden;}
+.page-title h2{float:left; font-size:22px; color:#5f5f5f; margin:5px 0 0 0;}
+.page-title .search-box{float:right;}
+.page-title .search-box input[type=text]{float:left; margin:0; border:solid 1px #5f5f5f;}
+.page-title .search-box input[type=button]{float:left; margin:0; height:32px; background:#5f5f5f; border:0; padding:0 15px; color:#FFF; cursor:pointer;}
+
+/* Styles for Header section starts */
+header{height:92px;}
+header .header-inner{height:62px; border-bottom:solid 11px #5f5f5f;}
+header .header-inner .logo{float:left; width:115px; height:92px; background:url(../images/verizon-logo.png) no-repeat; margin:0 0 0 30px;}
+header .header-inner .app-name{float:left; width:132px; height:62px; background:url(../images/app-name.png) no-repeat center; margin:0 0 0 20px;}
+header nav{float:right; margin:0 30px 0 30px;}
+header nav ul{float:right;}
+header nav ul li{float:left; position:relative;}
+header nav ul li a{font-size:16px; text-decoration:none; color:#4f4f4f; display:block; padding:24px 15px 13px 40px; margin:0 5px;}
+header nav ul li a:hover{text-decoration:none;}
+header nav ul li .account{background:url(../images/account-black-icon.png) no-repeat 10px 22px;}
+header nav ul li .tools{background:url(../images/tools-black-icon.png) no-repeat 10px 22px;}
+header nav ul li .test-suite{background:url(../images/test-suite-black-icon.png) no-repeat 10px 22px;}
+header nav ul li .configuration{background:url(../images/config-black-icon.png) no-repeat 10px 22px;}
+header nav ul li .users{background:url(../images/user-black-icon.png) no-repeat 10px 22px;}
+header nav ul li.selected .account{background:url(../images/account-white-icon.png) no-repeat #ee1c25 10px 22px; color:#FFF;}
+header nav ul li.selected .tools{background:url(../images/tools-white-icon.png) no-repeat #ee1c25 10px 22px; color:#FFF;}
+header nav ul li.selected .test-suite{background:url(../images/test-suite-white-icon.png) no-repeat #ee1c25 10px 22px; color:#FFF;}
+header nav ul li.selected .configuration{background:url(../images/config-white-icon.png) no-repeat #ee1c25 10px 22px; color:#FFF;}
+header nav ul li.selected .users{background:url(../images/user-white-icon.png) no-repeat #ee1c25 10px 22px; color:#FFF;}
+header nav ul li.dropdown{border-left:solid 1px #FFF; border-right:solid 1px #FFF;}
+header nav ul li.dropdown:after{content:""; width:7px; height:6px; background:url(../images/arrow-icon.png) no-repeat center; position:absolute; right:5px; top:29px;}
+header nav ul li:hover{border-bottom:solid 2px #ee1c25;}
+header nav ul li.selected:hover{border:none;}
+header nav ul li.dropdown:hover{border-color:#CCC;}
+
+/* Styles for Submenu starts */
+header nav ul li ul{width:200px; background:#FFF; border:solid 1px #CCC; position:absolute; right:-1px; display:none;}
+header nav ul li ul li{clear:both; width:100%; padding:10px 0; border-bottom:dashed 1px #E1E1E1;}
+header nav ul li ul li:last-child, header nav ul li ul li:last-child:hover{border:none;}
+header nav ul li ul li a{padding:0 5px;}
+header nav ul li ul li:hover{background:#ee1c25; border-bottom:dashed 1px #E1E1E1;}
+header nav ul li ul li:hover a{color:#FFF;}
+header nav ul li:hover ul{display:block;}
+/* Styles for Header section ends */
+
+/* Styles for Footer section starts */
+.push{height:30px;}
+footer{background:#4c4c4c; text-align:right; color:#FFF; padding:7px 30px; height:16px; margin:-30px 0 0;}
+/* Styles for Footer section ends */
+
+/* Styles for links icons starts */
+.action-icons{display:inline-block; padding:0 5px; margin:0 5px; border-right:solid 1px #999;}
+.action-icons:last-child{border:0;}
+.edit-icon{width:16px; height:16px; background:url(../images/edit-icon.png) no-repeat left center;}
+.delete-icon{width:16px; height:16px; background:url(../images/delete.png) no-repeat left center;}
+.add-link{background:url(../images/add-icon.png) no-repeat left center; padding:0 0 0 22px;}
+.stop-icon{width:16px; height:16px; background:url(../images/stop-icon.png) no-repeat left center;}
+.play-icon{width:16px; height:16px; background:url(../images/play-icon.png) no-repeat left center;}
+.pause-icon{width:16px; height:16px; background:url(../images/pause-icon.png) no-repeat left center;}
+.more-icon{padding-left:10px; width:16px; height:16px; background:url(../images/more-icon.png) no-repeat left center;}
+.download-icon{width:16px; height:16px; background:url(../images/download-icon.png) no-repeat left center;}
+/* Styles for links icons ends */
+
+/* Styles for Tab Component starts */
+.tab-container{}
+.tab-container .tab-buttons{overflow:hidden;}
+.tab-container .tab-buttons .tab{float:left; padding:10px; margin:0 5px 0 0; background:#5f5f5f; color:#FFF; border:solid 1px #d5d5d5; border-bottom:0; border-radius:5px 5px 0 0; cursor:pointer;}
+.tab-container .tab-buttons .tab:hover{color:#C1C1C1;}
+.tab-container .tab-buttons .tab.selected{background:#FFF; color:#5f5f5f; border-top:solid 2px #ee1c25;}
+.tab-container .tab-content-area{padding:10px 20px; border:solid 1px #d5d5d5; margin:-1px 0 0 0; min-height:200px;}
+.tab-container .tab-content-area .tab-content{/*overflow:hidden;*/ display:none;}
+/* Styles for Tab Component ends */
+
+/* Styles for Inline Form starts */
+/* Styles for Inline Form ends */
+
+/* Styles for Grid starts */
+table{width:100%; border-collapse:collapse; border:solid 1px #c3c3c3;}
+table thead{background:#e5e5e5;}
+table tr{border-top:solid 1px #c3c3c3; border-bottom:solid 1px #c3c3c3;}
+table tr th{text-align:left; padding:7px; color:#5f5f5f;}
+table tr td{padding:7px; color:#5f5f5f;}
+/* Styles for Grid ends */
+
+/* Styles for Accordion List starts */
+.accordion-list{}
+.accordion-list ul{}
+.accordion-list ul li{padding:5px 0; border-bottom:solid 1px #b5b4b4;}
+.accordion-list .expand-collapse{width:11px; height:11px; float:left; background:url(../images/right-grey-arrow.png) center no-repeat; margin:5px 25px 0 0; cursor:pointer;}
+.accordion-list .expand-collapse.expanded{background:url(../images/down-grey-arrow.png) center no-repeat;}
+.accordion-list ul li ul{margin:10px 0 0 0; border-top:solid 1px #b5b4b4; display:none;}
+.accordion-list ul li ul li{margin:0 0 0 36px;}
+.accordion-list ul li ul li:last-child{border:none;}
+/* Styles for Accordion List ends */
+
+/* Styles for Pagination starts */
+.pagination{float:right; padding:10px 5px; margin:10px 0; border:solid 1px #c3c3c3; border-radius:5px;}
+.pagination a{display:inline-block; width:15px; height:15px; padding:5px; border:solid 1px #5f5f5f; text-decoration:none; text-align:center; color:#5f5f5f;}
+.pagination a:hover{background-color:#E1E1E1;}
+.pagination .selected{background-color:#5f5f5f; color:#FFF;}
+.pagination .selected:hover{background-color:#5f5f5f;}
+.pagination .prev{width:initial; height:initial; border:none; background:url(../images/left-grey-arrow.png) no-repeat left center; padding:0 0 0 15px; margin:0 20px;}
+.pagination .next{width:initial; height:initial; border:none; background:url(../images/right-grey-arrow.png) no-repeat right center; padding:0 15px 0 0; margin:0 20px;}
+.pagination .prev:hover, .pagination .next:hover{text-decoration:underline; background-color:initial;}
+/* Styles for Pagination ends */
+
+/* Styles for Form Layout starts */
+.form-layout{}
+.form-layout .row{overflow:hidden; margin:8px 0;}
+.form-layout .row.mandatory label:after{content:"*"; color:#F00; margin:0 0 0 2%;}
+.form-layout .row label{float:left; width:15%; margin:0.7% 5% 0 0;}
+.form-layout .row input, .form-layout .row select{width:20%; padding:5px;}
+.form-layout .row textarea{width:30%; padding:5px;}
+.form-layout .button-container{text-align:right; padding:1% 0 0 0; border-top:dotted 1px #aeaeae;}
+.form-layout .button-container input[type='button']{background:#FFF; margin:0 10px 0 0; width:100px; height:30px; border:solid 1px #d5d5d5; border-bottom:solid 2px #ee1c25; border-radius:3px;}
+.form-layout .button-container input[type='submit']{background:#FFF; margin:0 10px 0 0; width:100px; height:30px; border:solid 1px #d5d5d5; border-bottom:solid 2px #ee1c25; border-radius:3px;}
+/* Styles for Form Layout ends */
+
+/* Styles for Modal Popup starts */
+.screen-blocker{background:#000; position:absolute; left:0; top:0; opacity:0.5;}
+.modal-box{width:650px; min-height:200px; max-height:500px; background:#FFF; padding:10px; border:solid 5px #CCC; position:absolute; display:none;
+	box-shadow:0px 0px 15px rgba(0,0,0,0.8);
+	-webkit-box-shadow:0px 0px 15px rgba(0,0,0,0.8);
+	-moz-box-shadow:0px 0px 15px rgba(0,0,0,0.8);
+    z-index:100;
+}
+.modal-box header{padding:10px; height:auto; overflow:hidden; border:solid 1px #999;
+	background: #eaeaea; /* Old browsers */
+	background: -moz-linear-gradient(top, #eaeaea 0%, #CCC 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaeaea), color-stop(100%,#CCC)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eaeaea 0%,#CCC 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eaeaea 0%,#CCC 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #eaeaea 0%,#CCC 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #eaeaea 0%,#CCC 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#CCC',GradientType=0 ); /* IE6-9 */
+}
+.modal-box header h2{float:left; font-size:18px; margin:2px 5px;}
+.modal-box header .close-btn{float:right; background:url(../images/close-icon.png) right center no-repeat; font-size:18px; text-decoration:none; color:#666; padding:4px 30px 4px 0;}
+.modal-box .content{margin:20px 0 0 0; min-height:100px; max-height:380px; overflow-y:auto;}
+.modal-box .content .form-layout .row label{width:20%;}
+.modal-box .content .form-layout .row input, .modal-box .content .form-layout .row select{width:40%; padding:5px;}
+.modal-box .content .form-layout .row textarea{width:70%; padding:5px;}
+/* Styles for Modal Popup ends */
+
+/* Styles for Login Page starts */
+.login-page{min-height:100%; height:100%; background:#353434;}
+.login-box{position:relative; top:20%;}
+.login-box .login-inner{width:463px; background:#FFF; height:426px; margin:0 auto; border-top:solid 5px #a7a7a7; position:relative; -webkit-box-shadow: 5px 5px 200px 1px #B3B3B3; box-shadow: 5px 5px 200px 1px #B3B3B3;}
+.login-box .login-inner .header{background:#efeded; height:35px;}
+.login-box .login-inner .header .logo{width:81px; height:74px; /*background:url(../images/logo-small.png) */no-repeat; margin:0 0 0 25px}
+.login-box .login-inner h2{margin:70px 50px 30px; font-size:26px; color:#8c8c8c;}
+.login-box .login-inner .login-form{padding:0 50px;}
+.login-box .login-inner .login-form .row{position:relative;}
+.login-box .login-inner .login-form .row input{display:block; width:295px; height:35px; font-size:18px; padding:5px; margin:10px 0; border:solid 1px #b5b4b4;}
+.login-box .login-inner .login-form input[type="text"], .login-box .login-inner .login-form input[type="password"]{padding:5px 5px 5px 55px;}
+.login-box .login-inner .login-form .row:after{content:""; width:45px; height:45px; border:solid 1px #b5b4b4; position:absolute; top:0; left:0;}
+.login-box .login-inner .login-form .row.username:after{background:url(../images/username-icon.png) no-repeat center #bfbebe;}
+.login-box .login-inner .login-form .row.password:after{background:url(../images/password-icon.png) no-repeat center #bfbebe;}
+.login-box .login-inner .login-form input[type="submit"]{width:357px; height:47px; background:#797979; color:#FFF; border:0; cursor:pointer;}
+.login-box .login-inner .login-form .amPmCheckbox input[type="checkbox"]{display:none;}
+.login-box .login-inner .links{overflow:hidden; margin:10px 0 0 0;}
+.login-box .login-inner .links .amPmCheckbox{float:left;}
+.login-box .login-inner .links .amPmCheckbox label{font-size:18px;}
+.login-box .login-inner .links .amPmCheckbox input[type="checkbox"]+label{background-position:0 4px;}
+.login-box .login-inner .links .amPmCheckbox input[type="checkbox"]:checked+label{background-position:0 4px;}
+.login-box .login-inner .links a{float:right; color:#0071c5; font-size:18px; margin:4px 0 0 0;}
+.login-box .login-inner .create-account{position:absolute; bottom:0; right:0; background:#0071c5; color:#FFF; border:0; padding:10px 20px; margin:0; cursor:pointer;}
+.login-box footer{width:463px; background:none; margin:0 auto; text-align:left; font-size:16px; color:#a1a1a1;}
+/* Styles for Login Page ends */
+
+/* Styles for Run-Schedule Tab starts */
+.set-name{margin:5px 0 10px 0;}
+.set-name input{width:250px;}
+/* Styles for Run-Schedule Tab ends */
+
+/* Styles for Results Tab starts */
+.result-content{}
+.result-content .search-filters{display:inline-block; width:100%; padding:10px 0; margin:0 0 20px 0; border-bottom:dotted 1px #aeaeae;}
+.result-content .search-filters .form-group{float:left; overflow:hidden; margin:0 30px 0 0;}
+.result-content .search-filters .form-group *{float:left;}
+.result-content .search-filters .form-group label{font-size:16px; margin:7px 10px 0 0;}
+.result-content .search-filters input[type='button']{float:left; background:#ec1d27; padding:5px 20px; color:#FFF; height:33px; border:0;}
+.result-content .search-filters .download-menu{float:right; border:solid 1px #FFF; position:relative;}
+.result-content .search-filters .download-menu:hover{border:solid 1px #ec1d27;}
+.result-content .search-filters .download-menu label{display:block; background:url(../images/red-down-arrow.png) right 5px center no-repeat; padding:7px 20px 7px 7px; font-size:16px; text-align:right; color:#ee1c25; cursor:pointer;}
+.result-content .search-filters .download-menu .menu-list{width:150px; background:#FFF; border:solid 1px #ec1d27; position:absolute; top:33px; right:-1px; display:none;}
+.result-content .search-filters .download-menu .menu-list span{font-size:16px; padding:10px 10px 10px 45px; border-bottom:dashed 1px #E1E1E1; display:block; cursor:pointer;}
+.result-content .search-filters .download-menu .menu-list span:hover{background-color:#ec1d27; color:#FFF;}
+.result-content .search-filters .download-menu .menu-list span:last-child{border:0;}
+.result-content .search-filters .download-menu:hover .menu-list{display:block;}
+.result-content .search-filters .download-menu .menu-list .summary{background:url(../images/summary-icon.png) left 10px center no-repeat;}
+.result-content .search-filters .download-menu .menu-list .report{background:url(../images/report-icon.png) left 10px center no-repeat;}
+
+.results-grid{border-top:solid 1px #c3c3c3; border-left:solid 1px #c3c3c3; border-right:solid 1px #c3c3c3;}
+.results-grid .row{overflow:hidden; border-bottom:solid 1px #c3c3c3;}
+.results-grid .row .column{float:left; padding:5px 10px 5px 5px; min-height:17px;}
+.results-grid .row .column.one{width:3%;}
+.results-grid .row .column.two{width:3%;}
+.results-grid .row .column.three{width:10%;}
+.results-grid .row .column.four{width:10%;}
+.results-grid .row .column.five{width:15%;}
+.results-grid .row .column.six{width:15%;}
+.results-grid .row .column.seven{width:22%;}
+.results-grid .row .column.eight{float:right; width:10%;}
+.results-grid .row.header{background:#e5e5e5;}
+.results-grid.accordion-list .expand-collapse{float:none; margin:5px auto 0;}
+.results-grid .row.data-group{padding:0 0 0 8.3%; display:none;}
+.results-grid .row.data-group .row:last-child{border:0;}
+.results-grid .row.data-group .column.one{width:23%;}
+.results-grid .row.data-group .column.two{width:62.5%;}
+.results-grid .row.data-group .column.three{}
+.results-grid .row .column span{display:block; float:left; width:18px; height:18px; text-align:center; border:solid 1px #666; margin:0 -1px 0 0;}
+.results-grid .row .column span.pass{background:#bcf451;}
+.results-grid .row .column span.fail{background:#ff4d4d; color:#FFF;}
+.progress-bar{float:left; width:200px; height:7px; border:solid 1px #999; margin:4px 5px 0 0;}
+.progress-bar .filler{width:100%; height:7px;
+	background: #f2b101; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f2b101 1%, #f48301 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#f2b101), color-stop(100%,#f48301)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f2b101 1%,#f48301 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f2b101 1%,#f48301 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f2b101 1%,#f48301 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f2b101 1%,#f48301 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2b101', endColorstr='#f48301',GradientType=0 ); /* IE6-9 */
+}
+.progress-bar.disabled{opacity:0.5;}
+.results-grid .row .column p{width:30px; text-align:center; padding:1px 8px; border-radius:5px;}
+.results-grid .row .column p.pass{color:#3a9305; border:solid 1px #3a9305;}
+.results-grid .row .column p.fail{color:#fe0000; border:solid 1px #fe0000;}
+.results-grid .row.data-group p.pass{border:0;}
+.results-grid .row.data-group p.fail{border:0;}
+/* Styles for Results Tab ends */

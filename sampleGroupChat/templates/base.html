@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+    <script src="{% static 'scripts/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'scripts/jquery.js' %}"></script>
+    <script src="{% static 'scripts/jquery-ui.js' %}"></script>
+    <script src="{% static 'scripts/resize.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <script src="{% static 'scripts/scripts.js' %}"></script>
+	<title>Test Harness</title>
+    <style>{% block css %}{% endblock %}</style>
+    <script>{% block js %}{% endblock %}
+            $(document).ready(function(){       
+                $('input,textarea').attr('autocomplete', 'off');
+
+
+                $(".logout").hide();
+                
+                $( "#logout" ).click(function() {
+                    $( ".logout" ).slideToggle( "slow" );
+                });
+      
+                $(".logout").mouseleave(function() {
+        		$('.logout').hide();
+    			});
+                
+
+                // $( "#dialog-form1" ).dialog({
+                //     autoOpen: false,
+                //     height: 250,
+                //     width: 370,
+                //     modal: true,
+                //     close: function() {
+                //    }
+                // });
+
+                $("#search_scenario").click( function(event){
+                    event.preventDefault();
+                    var search_text = $("#search_text").val();
+                    var url_search="{% url 'search_list'  %}"+"?search_text="+search_text; 
+                    $.ajax({
+                        url:url_search,
+                    }).done(function(data) {
+                        $( "#search_result_content" ).html(data)
+                        $( "#search_result" ).click();
+                    });
+                });
+            });
+
+
+        
+        </script>
+        {% block extra-js-css %}{% endblock %}
+</head>
+
+<body>
+	<!-- Main Container starts -->
+	<div class="main-container">
+		<!-- Header starts -->
+		<header>
+			<section class="header-inner">
+				<a href="javascript:void(0);" class="logo"></a>
+				<div class="app-name"></div>
+				<nav>
+					<ul class="menu">
+                        {% block nav-organisation %}
+						<li>
+							<a href="{% url 'organisation_list' %}" class="users">Users</a>
+						</li>
+                        {% endblock %}
+                        {% block nav-systemvariable %}
+						<li>
+							<a href="{% url 'systemvariables_list' %}" class="configuration">Configuration</a>
+						</li>
+                        {% endblock %}
+                        {% block nav-scenario %}
+						<li>
+							<a href="{% url 'scenario-list' %}" class="test-suite">Test Suite</a>
+						</li>
+                        {% endblock %}
+                        {% block nav-tools %}
+						<li>
+							<a href="{% url 'tools' %}" class="tools">Tools</a>
+						</li>
+                        {% endblock %}
+						<li class="dropdown">
+                        <a href="javascript:void(0);" class="account">{{ user|title }}</a>
+							<ul class="submenu">
+								<!-- <li> -->
+								<!-- 	<a href="javascript:void(0);">Profile</a> -->
+								<!-- </li> -->
+								<li>
+                                <a href="{% url 'password_change' %}">Change Password</a>
+								</li>
+								<li>
+									<a href="{% url 'logout' %}">Signout</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+			</section>
+		</header>
+        {% include 'message.html' %}
+        <a href="javascript:void(0);" id="search_result" class="open_modal" style="display:none;"></a>
+        <div id="soft_popup_search_result" class="modal-box" title="Search Results">
+            <header>
+                <h2>Search Result</h2>
+                <a href="javascript:void(0);" class="close-btn">Close</a>
+            </header>
+            <div class="content">
+                <div class="form-layout" id="search_result_content">
+                </div>
+            </div>
+        </div>
+		<!-- Header ends -->
+        <!-- Body starts -->
+        <div class="middle-container">
+            <div class="body-area">
+                <div class="page-title">
+                    <h2>{% block content-title %}{% endblock %}</h2>
+                    <div class="search-box">
+                        <input type="text" name="search_text" id="search_text" value="" placeholder="Search by scenario id... Eg 8659" maxlength=50/>
+                        <input type="button" value="Search" id="search_scenario"/>
+                    </div>
+                </div>
+                <div class="body-container">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <!-- Body ends -->
+		
+		<div class="push"></div>
+	</div>
+	<!-- Main Container ends -->
+	<!-- Footer starts -->
+		<footer>Copyright 2014 · All rights reserved</footer>
+	<!-- Footer ends -->
+</body>
+</html>

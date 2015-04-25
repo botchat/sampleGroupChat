@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import socket
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 
@@ -85,23 +86,29 @@ TEMPLATE_DIRS = (PROJECT_PATH + '/templates/',)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-if DEBUG:
-    STATIC_ROOT = os.path.join(PROJECT_PATH, '/static')
-else:
-    STATIC_ROOT = os.path.join(PROJECT_PATH, 'static')
+#if DEBUG:
+#    STATIC_ROOT = os.path.join(PROJECT_PATH, '/static')
+#else:
+#    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     
-print STATIC_ROOT, 'hhhh'
 
+BASEH_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
+STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
-        os.path.join(PROJECT_PATH, "static"),
-)
+        #os.path.join(PROJECT_PATH, "static"),
+        os.path.join(BASEH_DIR, "static"),
 
+)
+print os.path.join(BASE_DIR, "static")
 
 USER_DIRS = (
                     BASE_DIR + '/Users/'
                                 )
                                 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # ChatServer client configuration
 MAX_NO_OF_MSG_TO_SHOW = 18

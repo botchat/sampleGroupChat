@@ -15,7 +15,7 @@ import select
 
 
 # Create your views here.
-
+chatTupleList = []
 class mainPage(View):
     """
     home
@@ -90,13 +90,6 @@ class quitChat(View):
         quit chat
         render home page for user
         """
-        #chatList = Chat.objects.all()
-        #if len(chatList) > MAX_NO_OF_MSG_TO_SHOW:
-        #    for counter in range(len(chatList) - MAX_NO_OF_MSG_TO_SHOW):
-        #        chatList[0].delete()
-        #newChat = Chat(username='_', message='%s left' % (request.user.username),
-        #                pub_date=datetime.now())
-        #newChat.save()
         return HttpResponseRedirect('/home/logged_user')
     
     def post(self, request):
@@ -104,24 +97,22 @@ class quitChat(View):
         """
         pass
     
-class joinChat(ListView):
+class joinChat(View):
     """
     chat page for user
     """
-    model = Chat
-    template_name = 'chatbotclassifier/joinChat.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super(joinChat, self).get_context_data(**kwargs)
-        chatList = Chat.objects.all()
+    def get(self, request):
+        c = {}
+        c.update(csrf(request))
+        chatList = chatTupleList
         displayCount = 0
         if len(chatList) > MAX_NO_OF_MSG_TO_SHOW:
             displayCount = len(chatList) - MAX_NO_OF_MSG_TO_SHOW
         else:
             displayCount = 0
-        context['groupChat'] = chatList[displayCount:]
-        #contest['user'] = request.user.username
-        return context
+        c['groupChat'] = chatList[displayCount:]
+        c['user'] = request.user.username
+        return render_to_response('chatbotclassifier/joinChat.html', c)
     
     def post(self, request):
         """
@@ -129,15 +120,32 @@ class joinChat(ListView):
         store it to db
         and update chatPage
         """
-        chatList = Chat.objects.all()
+        c = {}
+        c.update(csrf(request))
+        chatList = chatTupleList
         if len(chatList) > MAX_NO_OF_MSG_TO_SHOW:
             for counter in range(len(chatList) - MAX_NO_OF_MSG_TO_SHOW):
                 chatList[0].delete()
-        newChat = Chat(username=request.user.username, message=request.POST.get('usermsg'),
-                        pub_date=datetime.now())
-        newChat.save()
-        newChat = PermenantChat(username=request.user.username, message=request.POST.get('usermsg'),
-                        pub_date=datetime.now())
-        newChat.save()
-        return HttpResponseRedirect('/home/join_chat')
+        username=request.user.username
+        message=request.POST.get('usermsg')
+        pub_date=datetime.now()
+        chatList.append((username, message, pub_date))
+        
+        return HttpResponseRedirect('/home/join_chat', c)
     
+def getChat(request):
+    '''
+    This function is used for ajax call
+    '''
+    context = {}
+    context.update(csrf(request))
+    chatList = chatTupleList
+    displayCount = 0
+    if len(chatList) > MAX_NO_OF_MSG_TO_SHOW:
+        displayCount = len(chatList) - MAX_NO_OF_MSG_TO_SHOW
+    else:
+        displayCount = 0
+    context['groupChat'] = chatList[displayCount:]
+    if request.user.username:
+        context['user'] = request.user.username
+        return render_to_response('chatbotclassifier/getChat.html', context)

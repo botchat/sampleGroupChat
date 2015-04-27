@@ -1,6 +1,5 @@
 from django.conf.urls import patterns, url
-#from django.views.generic import View, TemplateView
-from chatting.views import mainPage, addUser, userHome, joinChat, quitChat#, connectChat
+from chatting.views import mainPage, addUser, userHome, joinChat, quitChat
 
 urlpatterns = patterns('',
     url(r'^main/$', mainPage.as_view(), name='home'),
@@ -8,5 +7,5 @@ urlpatterns = patterns('',
     url(r'^logged_user/$', userHome.as_view(), name='logged_user'),
     url(r'^join_chat/$', joinChat.as_view(), name='join_chat'),
     url(r'^quit_chat/$', quitChat.as_view(), name='quit_chat'),
-    #url(r'^connect_chat/$', connectChat, name='connect_chat'),
+    url(r'^getChat/$', getChat, name='get_chat'),
 )

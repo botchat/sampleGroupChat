@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+=<!DOCTYPE html>
 {% load staticfiles %}
 <html>
 <head>
 <title>Join - Chat</title>
 <script src="{% static 'scripts/jquery.js' %}"></script>
 <script type="text/javascript">
-  setInterval("reloadChatbox();",5000); 
+function msgTag(a) {
+    return a * b;
+}
+</script>
+<script type="text/javascript">
+  setInterval("reloadChatbox();",2000); 
   
     function reloadChatbox(){
         var oldUrl = location + ''
@@ -33,11 +38,20 @@ l        <div style="clear:both"></div>
         <ul>
         {% for chatInfo in groupChat %}
             <!--li>{{ chatInfo.pub_date }} : {{ chatInfo.username }} >> {{ chatInfo.message }}</li-->
-            <li>{{ chatInfo.2 }} : {{ chatInfo.0 }} >> {{ chatInfo.1 }}</li>
+            <li>{{ chatInfo.2 }} : {{ chatInfo.0 }} >> {{ chatInfo.1 }}<a href="{{ chatInfo.3 }}">{{ chatInfo.3 }}</a></li>
         {% empty %}
             <li>No messages yet.</li>
         {% endfor %}
         </ul>
+        {% if botList %}
+        <div>
+            <ul>
+            {% for bot in botList %}
+                <li> * User "{{ bot }}" is trying to send spam which is surely fraud chatbot(User).</li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
     </div>
     <form name="message" action="." method="post">
         {% csrf_token %}

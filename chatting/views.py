@@ -9,13 +9,13 @@ from django.contrib.auth.models import User
 from chatting.models import Chat, PermenantChat
 from sampleGroupChat.settings import MAX_NO_OF_MSG_TO_SHOW
 from datetime import datetime
-import socket
-import sys
-import select
+from classifier import Classifier
 
 
 # Create your views here.
 chatTupleList = []
+botList = []
+classifierObj = Classifier()
 class mainPage(View):
     """
     home
@@ -112,6 +112,11 @@ class joinChat(View):
             displayCount = 0
         c['groupChat'] = chatList[displayCount:]
         c['user'] = request.user.username
+        #verifying admin
+        if request.user.id == 1:
+            c['botList'] = botList
+        else:
+            c['botList'] = []
         return render_to_response('chatbotclassifier/joinChat.html', c)
     
     def post(self, request):
@@ -120,16 +125,35 @@ class joinChat(View):
         store it to db
         and update chatPage
         """
+        
         c = {}
         c.update(csrf(request))
         chatList = chatTupleList
         if len(chatList) > MAX_NO_OF_MSG_TO_SHOW:
             for counter in range(len(chatList) - MAX_NO_OF_MSG_TO_SHOW):
-                chatList[0].delete()
+                chatList.remove(chatList[0])
         username=request.user.username
         message=request.POST.get('usermsg')
+        link = ''
         pub_date=datetime.now()
-        chatList.append((username, message, pub_date))
+        message, newBotList = classifierObj.filterMessage((username, message, pub_date))
+        
+        # updating botlist
+        if botList != newBotList:
+            for bot in newBotList:
+                if bot not in botList:
+                    botList.append(bot)
+        else:
+            pass
+        
+        # simple link identification    
+        if message.startswith('http'):
+            link = message
+            message = ''
+        else:
+            pass
+        if message.strip() or link.strip():
+            chatList.append((username, message, pub_date, link))
         
         return HttpResponseRedirect('/home/join_chat', c)
     
@@ -146,6 +170,13 @@ def getChat(request):
     else:
         displayCount = 0
     context['groupChat'] = chatList[displayCount:]
+    
+    #verifying admin
+    if request.user.id == 1:
+        context['botList'] = botList
+    else:
+        context['botList'] = []
+        
     if request.user.username:
         context['user'] = request.user.username
         return render_to_response('chatbotclassifier/getChat.html', context)
